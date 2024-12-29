@@ -1,0 +1,175 @@
+// Variables for colors and fonts
+$primary-color: #4a90e2;
+$secondary-color: #f5f7fa;
+$background-color: #ffffff;
+$text-color: #333333;
+$border-radius: 12px;
+$transition-speed: 0.3s;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// General Reset
+body {
+    margin: 0;
+    padding: 15px 25px;
+    font-family: "Arial", sans-serif;
+    background-color: $secondary-color;
+    color: $text-color;
+}
+
+// Table Styles
+.table_user,
+.table_room,
+.table_reservation {
+    margin: 20px auto;
+    padding: 20px;
+    background: $background-color;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+
+    .title_table {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: $primary-color;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            background-color: $primary-color;
+            color: white;
+
+            th {
+                padding: 12px;
+                text-align: left;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: lighten($secondary-color, 5%);
+                }
+
+                &:hover {
+                    background-color: lighten($primary-color, 30%);
+                }
+            }
+
+            td {
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+
+            &#tbody_users {
+                tr {
+                    td {
+                        width: 90px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Button for Modal Trigger
+#show_modal_room {
+    text-align: left;
+    margin: 20px 0;
+
+    button {
+        background-color: $primary-color;
+        padding: 15px;
+        font-size: 20px;
+    }
+}
+
+button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color $transition-speed;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}
+
+// Modal Styles
+#modal_room {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .title_modal {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        color: $primary-color;
+    }
+
+    form {
+        background: $background-color;
+        padding: 30px;
+        border-radius: $border-radius;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        width: 100%;
+
+        .input_group {
+            margin-bottom: 15px;
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+                border: 1px solid #ccc;
+                border-radius: $border-radius;
+                font-size: 1em;
+            }
+
+            textarea {
+                resize: none;
+            }
+
+            input[type="submit"] {
+                background-color: $primary-color;
+                color: white;
+                font-size: 1em;
+                border: none;
+                cursor: pointer;
+                transition: background-color $transition-speed;
+
+                &:hover {
+                    background-color: darken($primary-color, 10%);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,221 @@
+// Variables
+$primary-color: #356eb9;
+$secondary-color: #f2f2f2;
+$text-color: #333;
+$border-color: #ccc;
+$body-bg-active: rgba(0, 0, 0, 0.6);
+$button-hover: darken($primary-color, 10%);
+
+// Global Styles
+body {
+    margin: 0;
+    height: 100%;
+    font-family: "Arial", sans-serif;
+    background-color: $secondary-color;
+    color: $text-color;
+}
+
+// Table Section
+.table {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .title_table {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        background-color: $primary-color;
+        color: white;
+        padding: 1rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            background-color: $primary-color;
+            color: white;
+
+            tr th {
+                padding: 0.75rem;
+                text-align: left;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: #f9f9f9;
+                }
+
+                &:hover {
+                    background-color: #f1f1f1;
+                }
+
+                td {
+                    padding: 0.75rem;
+                    border-bottom: 1px solid $border-color;
+                }
+            }
+        }
+    }
+}
+
+// Modal Reservation Section
+#modal_reservation {
+    display: block;
+    // Posição e dimensões responsivas
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 700px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 999; // Garante que o modal fique acima de outros elementos
+
+    // Título com margem e tipografia personalizada
+    .header_modal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px; 
+
+        .button {
+            .close_button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+    
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+          }
+    }
+    // Grupos de entrada com espaçamento e alinhamento
+    .input_group {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="datetime-local"] {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.2s ease-in-out;
+
+            &:focus {
+                outline: none;
+                border-color: #007bff;
+            }
+        }
+
+        // Botão com hover e foco
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+}
+
+.show_modal {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+
+// Logout Button Section
+.button-logout {
+    text-align: center;
+    margin: 2rem 0;
+
+    #logout {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $button-hover;
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .table {
+        table {
+            thead {
+                display: none;
+            }
+
+            tbody {
+                tr {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1rem;
+                    border: 1px solid $border-color;
+                    border-radius: 4px;
+                    overflow: hidden;
+
+                    td {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0.5rem;
+                        border: none;
+
+                        &:before {
+                            content: attr(data-label);
+                            font-weight: bold;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #modal_reservation form {
+        padding: 1.5rem;
+    }
+}
